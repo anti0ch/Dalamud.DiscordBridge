@@ -3,7 +3,7 @@
     "Author": "goat, modded by Franz, forked by anti0ch",
     "Name": "Discord Bridge (Two-Way!)",
     "Description": "A bridge between Discord and FFXIV chat",
-    "InternalName": "Dalamud.DiscordBridge",
+    "InternalName": "Dalamud.DiscordBridge.TwoWay.Anti0ch",
     "AssemblyVersion": "1.6.1.0",
     "TestingAssemblyVersion": "1.6.1.0",
     "RepoUrl": "https://github.com/anti0ch/Dalamud.DiscordBridge",
