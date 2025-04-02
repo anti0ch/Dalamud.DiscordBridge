@@ -17,7 +17,7 @@ A Dalamud plugin that bridges Discord and FFXIV chat, allowing you to send and r
 2. Go to the "Experimental" tab
 3. Add the following custom repository:
    ```
-   https://raw.githubusercontent.com/yourusername/Dalamud.DiscordBridge/master/repo.json
+   https://raw.githubusercontent.com/anti0ch/Dalamud.DiscordBridge/master/repo.json
    ```
 4. Search for "Discord Bridge" in the plugin installer
 5. Click Install
