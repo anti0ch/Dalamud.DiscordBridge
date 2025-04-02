@@ -12,8 +12,8 @@
   "IsTestingExclusive": "False",
   "DownloadCount": 0,
   "LastUpdate": 0,
-  "DownloadLinkInstall": "https://github.com/anti0ch/Dalamud.DiscordBridge/releases/download/v1.5.2/latest.zip",
-  "DownloadLinkTesting": "https://github.com/anti0ch/Dalamud.DiscordBridge/releases/download/v1.5.2/latest.zip",
-  "DownloadLinkUpdate": "https://github.com/anti0ch/Dalamud.DiscordBridge/releases/download/v1.5.2/latest.zip",
+  "DownloadLinkInstall": "https://github.com/anti0ch/Dalamud.DiscordBridge/releases/download/v1.6.0/latest.zip",
+  "DownloadLinkTesting": "https://github.com/anti0ch/Dalamud.DiscordBridge/releases/download/v1.6.0/latest.zip",
+  "DownloadLinkUpdate": "https://github.com/anti0ch/Dalamud.DiscordBridge/releases/download/v1.6.0/latest.zip",
   "IconUrl": "https://raw.githubusercontent.com/anti0ch/Dalamud.DiscordBridge/master/icon.png"
 } 
