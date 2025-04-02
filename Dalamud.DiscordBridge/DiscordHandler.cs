@@ -3,6 +3,7 @@ using System.Collections.Concurrent;
 using System.Linq;
 using System.Threading.Tasks;
 using Dalamud.DiscordBridge.Model;
+using Dalamud.Game;
 using Dalamud.Game.Text;
 using Dalamud.Plugin.Services;
 using Discord;
@@ -20,7 +21,7 @@ namespace Dalamud.DiscordBridge
         static readonly IPluginLog Logger = Service.Logger;
 
         private readonly DuplicateFilter duplicateFilter;
-        
+        private readonly ChatHandler chatHandler;
         private readonly DiscordSocketClient socketClient;
         private readonly SpecialCharsHandler specialChars;
 
@@ -104,6 +105,7 @@ namespace Dalamud.DiscordBridge
                 MessageCacheSize = 20, // hold onto the last 20 messages per channel in cache for duplicate checks
                 GatewayIntents = GatewayIntents.AllUnprivileged | GatewayIntents.GuildMessages | GatewayIntents.GuildWebhooks | GatewayIntents.MessageContent,
             });
+            this.chatHandler = new ChatHandler(Service.SigScanner);
             Logger.Debug("AFTER DiscordSocketClient");
             this.socketClient.Ready += SocketClientOnReady;
             this.socketClient.MessageReceived += SocketClientOnMessageReceived;
@@ -180,12 +182,11 @@ namespace Dalamud.DiscordBridge
             if (message.Author.IsBot || message.Author.IsWebhook)
                 return;
 
-            var args = message.Content.Split();
+            var args = message.Content.Split(' ', 2, StringSplitOptions.RemoveEmptyEntries);
 
             // if it doesn't start with the bot prefix, ignore it.
-            if (!args[0].StartsWith(this.plugin.Config.DiscordBotPrefix))
+            if (!args[0].StartsWith(this.plugin.Config.DiscordBotPrefix, StringComparison.OrdinalIgnoreCase))
                 return;
-
             /*
             // this is only needed for debugging purposes.
             foreach (var s in args)
@@ -198,6 +199,48 @@ namespace Dalamud.DiscordBridge
 
             try
             {
+                // Handle direct commands (like /random)
+                if (message.Content.StartsWith(this.plugin.Config.DiscordBotPrefix + " /"))
+                {
+                    var command = message.Content.Substring(this.plugin.Config.DiscordBotPrefix.Length).TrimStart();
+                    Logger.Debug($"Processing command: {command}");
+                    var (success, replyMessage) = this.chatHandler.HandleMessage("", command);
+                    if (success)
+                    {
+                        await message.DeleteAsync();
+                    }
+                    else if (replyMessage != null)
+                    {
+                        await message.Channel.SendMessageAsync(replyMessage);
+                    }
+                    return;
+                }
+
+                // If the message is in the format "<prefix> <channel> <message>", and channel contains '/', forward to ChatHandler
+                if (args.Length == 2)
+                {
+                    var contentWithoutPrefix = message.Content.Substring(this.plugin.Config.DiscordBotPrefix.Length).TrimStart();
+                    var parts = contentWithoutPrefix.Split(' ', 2, StringSplitOptions.RemoveEmptyEntries);
+
+                    if (parts.Length == 2 && parts[0].Contains("/"))
+                    {
+                        var chatChannel = parts[0];
+                        var chatMessage = parts[1];
+
+                        // Forward to ChatHandler
+                        var (success, replyMessage) = this.chatHandler.HandleMessage(chatChannel, chatMessage);
+                        if (success)
+                        {
+                            await message.DeleteAsync();
+                        }
+                        else if (replyMessage != null)
+                        {
+                            await message.Channel.SendMessageAsync(replyMessage);
+                        }
+                        return;
+                    }
+                }
+                
                 if (args[0] == this.plugin.Config.DiscordBotPrefix + "setchannel" &&
                     await EnsureOwner(message.Author, message.Channel))
                 {

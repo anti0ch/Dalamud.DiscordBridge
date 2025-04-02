@@ -1,6 +1,7 @@
 ﻿using Dalamud.IoC;
 using Dalamud.Plugin.Services;
 using Dalamud.Plugin;
+using Dalamud.Game;
 
 namespace Dalamud.DiscordBridge
 {
@@ -12,5 +13,6 @@ namespace Dalamud.DiscordBridge
         [PluginService] internal static IDataManager Data { get; private set; } = null!;
         [PluginService] internal static IPluginLog Logger { get; private set; } = null!;
         [PluginService] internal static IFramework Framework { get; private set; } = null!;
+        [PluginService] internal static ISigScanner SigScanner { get; private set; } = null!;
     }
 }

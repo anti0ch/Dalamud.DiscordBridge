@@ -13,6 +13,7 @@ namespace Dalamud.DiscordBridge
 
         private string token;
         private string username;
+        private string botPrefix;
 
         private static Vector4 errorColor = new(1f, 0f, 0f, 1f);
         private static Vector4 fineColor = new(0.337f, 1f, 0.019f, 1f);
@@ -21,9 +22,9 @@ namespace Dalamud.DiscordBridge
         {
             this.token = this.Plugin.Config.DiscordToken;
             this.username = this.Plugin.Config.DiscordOwnerName;
-
+            this.botPrefix = this.Plugin.Config.DiscordBotPrefix;
             this.isVisible = true;
-        }
+        }   
 
         public void Draw()
         {
@@ -41,6 +42,7 @@ namespace Dalamud.DiscordBridge
 
             ImGui.InputText("Enter your bot token", ref this.token, 100);
             ImGui.InputText("Enter your Username(e.g. user#0000)", ref this.username, 50);
+            ImGui.InputText("Enter your bot prefix", ref this.botPrefix, 10);
 
             ImGui.Dummy(new Vector2(10, 10));
 
@@ -86,6 +88,7 @@ namespace Dalamud.DiscordBridge
 
                 this.Plugin.Config.DiscordToken = this.token;
                 this.Plugin.Config.DiscordOwnerName = this.username;
+                this.Plugin.Config.DiscordBotPrefix = this.botPrefix;
                 this.Plugin.Config.Save();
 
                 this.Plugin.Discord.Dispose();
