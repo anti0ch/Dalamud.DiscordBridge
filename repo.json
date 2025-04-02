@@ -1,5 +1,5 @@
 {
-  "Author": "anti0ch",
+  "Author": "goats, maintained by franz, forked by anti0ch",
   "Name": "Discord Bridge (Two-Way!)",
   "Description": "A bridge between Discord and FFXIV chat",
   "InternalName": "Dalamud.DiscordBridge",
