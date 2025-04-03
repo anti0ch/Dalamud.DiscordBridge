@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Platforms>x64</Platforms>
 	<NoWarn>CA1416,CA1862,IDE0003,IDE0060</NoWarn>
-    <AssemblyVersion>1.6.4.0</AssemblyVersion>
+    <AssemblyVersion>1.6.5.0</AssemblyVersion>
     <AssemblyName>Dalamud.DiscordBridge.TwoWay</AssemblyName>
   </PropertyGroup>
 
@@ -24,8 +24,15 @@
     <PackageReference Include="Discord.Net.Rest" Version="3.17.2" />
     <PackageReference Include="Discord.Net.Webhook" Version="3.17.2" />
     <PackageReference Include="Discord.Net.WebSocket" Version="3.17.2" />
-     <PackageReference Include="NetStone" Version="1.4.1" />
+    <PackageReference Include="NetStone" Version="1.4.1" />
   </ItemGroup>
+
+  <Target Name="CopyDependencies" AfterTargets="Build">
+    <ItemGroup>
+      <DependencyFiles Include="$(OutputPath)*.dll" Exclude="$(OutputPath)$(AssemblyName).dll" />
+    </ItemGroup>
+    <Copy SourceFiles="@(DependencyFiles)" DestinationFolder="$(OutputPath)" />
+  </Target>
 
   <ItemGroup>
     <None Update="icon.png">
