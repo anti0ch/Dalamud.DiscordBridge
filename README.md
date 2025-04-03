@@ -7,7 +7,8 @@ A Dalamud plugin that bridges Discord and FFXIV chat, allowing you to send and r
 - Send FFXIV chat messages to Discord channels
 - Send Discord messages to FFXIV chat channels
 - Support for all FFXIV chat channels (/say, /shout, /tell, etc.)
-- Support for FFXIV commands (/random, /dice, etc.)
+- Support for FFXIV commands (/random, /sit, /cpose, /playdead, /malevolence, etc.)
+- Technically if you have plugins that add more /commands, like Teleporter, those should also work (/tp Quarrymill)
 
 ## Installation
 
