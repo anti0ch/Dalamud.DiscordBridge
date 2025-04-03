@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Platforms>x64</Platforms>
 	<NoWarn>CA1416,CA1862,IDE0003,IDE0060</NoWarn>
-    <AssemblyVersion>1.6.5.0</AssemblyVersion>
+    <AssemblyVersion>1.6.6.0</AssemblyVersion>
     <AssemblyName>Dalamud.DiscordBridge.TwoWay</AssemblyName>
   </PropertyGroup>
 
