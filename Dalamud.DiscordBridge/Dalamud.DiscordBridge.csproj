@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Platforms>x64</Platforms>
 	<NoWarn>CA1416,CA1862,IDE0003,IDE0060</NoWarn>
-    <AssemblyVersion>1.6.1.0</AssemblyVersion>
+    <AssemblyVersion>1.6.2.0</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
