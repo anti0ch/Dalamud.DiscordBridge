@@ -22,7 +22,7 @@ A Dalamud plugin that bridges Discord and FFXIV chat, allowing you to send and r
 
 ## Configuration
 
-(optional) make a new server for just you and your bot to chill in
+0. (optional) make a new server for just you and your bot to chill in
 1. Create a Discord Bot at the [Discord Developer Portal](https://discord.com/developers/applications)
 2. Copy your bot token
 3. In the plugin settings, paste your bot token
@@ -58,7 +58,7 @@ I tried to make it split things up automatically and send them piecemeal but the
 You'll need to set up the bot to post in the channels of whatever server it's in. I just made a new server for me and the bot only.
 
 So let's say you make an #rp channel and you want to have the bot post in there every say, yell, party, and shout it has in there.
-Inside that #rp channel you would type xl!setchannel say,yell,p,shout,customemote,standardemote and then stuff would show up in there from now on!
+Inside that #rp channel you would type `xl!setchannel say,yell,p,shout,customemote,standardemote` and then stuff would show up in there from now on!
 
 Here's a link to all the chat kinds you can listen to. https://github.com/reiichi001/Dalamud.DiscordBridge/wiki/Chat-kinds
 
