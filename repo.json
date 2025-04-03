@@ -8,7 +8,7 @@
     "TestingAssemblyVersion": "1.6.4.0",
     "RepoUrl": "https://github.com/anti0ch/Dalamud.DiscordBridge",
     "ApplicableVersion": "any",
-    "DalamudApiLevel": 8,
+    "DalamudApiLevel": 12,
     "IsHide": "False",
     "IsTestingExclusive": "False",
     "DownloadCount": 0,
