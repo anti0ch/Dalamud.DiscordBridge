@@ -2,7 +2,7 @@
   "Author": "goat, modded by Franz, forked by anti0ch",
   "Name": "Discord Bridge (Two-Way!)",
   "Description": "This plugin allows you to receive your chat messages via Discord.",
-  "InternalName": "Dalamud.DiscordBridge.TwoWay.Anti0ch",
+  "InternalName": "Dalamud.DiscordBridge.TwoWay",
   "RepoUrl": "https://github.com/anti0ch/Dalamud.DiscordBridge",
   "Tags": [ "discord", "chat" ],
   "Punchline": "Receive your chat messages via Discord.",
