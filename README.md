@@ -58,12 +58,10 @@ I tried to make it split things up automatically and send them piecemeal but the
 
 You'll need to set up the bot to post in the channels of whatever server it's in. I just made a new server for me and the bot only.
 
-So let's say you make an #rp channel and you want to have the bot post in there every say, yell, party, and shout it has in there.
-Inside that #rp channel you would type `xl!setchannel say,yell,p,shout,customemote,standardemote` and then stuff would show up in there from now on!
+So let's say you make an #rp channel and you want to have the bot post in there every say, yell, party, shout, and random roll result it has in there.
+Inside that #rp channel you would type `xl!setchannel say,yell,p,shout,customemote,standardemote,random` and then stuff would show up in there from now on!
 
 Here's a link to all the chat kinds you can listen to. https://github.com/reiichi001/Dalamud.DiscordBridge/wiki/Chat-kinds
-
-One thing I haven't figured out yet is how to have it listen to the result of /random rolls. You can make random rolls from Discord using xl! /random but you won't be able to see what you got. Sorry folks. I'll be working on this one!
 
 I hope this guide is okay. Let me know if you get stuck on anything.
 
